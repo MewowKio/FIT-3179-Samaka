@@ -1,0 +1,41 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "World Hunger Index",
+    "background":"aliceblue",
+    
+    "width": 800,
+    "height": 400,
+    "projection": {"type": "equalEarth"},
+    "data": {
+    "url": "map.json",
+    "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+    },
+    "transform": [
+    {
+    "lookup": "properties.NAME",
+    "from": {
+    "data": {
+    "url": "wlc.csv"
+    },
+    "key": "Entity",
+    "fields": ["Prevalence of undernourishment (% of population)"]
+}
+
+}
+],
+"mark": {"type": "geoshape"},
+"encoding": {
+"color": {
+"field": "Prevalence of undernourishment (% of population)",
+"type": "quantitative",
+"scale": {"type": "log"}
+},
+"tooltip": [
+{"field": "properties.NAME", "type": "nominal", "title":
+"Entity"},
+{"field": "Prevalence of undernourishment (% of population)", "type": "quantitative"}
+]
+}
+}
+
+    
