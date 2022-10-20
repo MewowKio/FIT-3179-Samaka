@@ -3,7 +3,7 @@
     "title": "World Hunger Index",
     "background":"aliceblue",
     
-    "width": 800,
+    "width": "container",
     "height": 400,
     "projection": {"type": "equalEarth"},
     "data": {
